@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visualizador de Octree</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Visualizador de Octree (B / W / Half)</h1>
+
+    <div class="panel">
+      <div class="controls">
+        <input type="text" id="treeInput" placeholder="Ex: (B(BBBBBBWWWBWWWB" autocomplete="off" spellcheck="false">
+        <input type="number" id="maxLevelInput" min="0" step="1" placeholder="maxLevel"
+          title="Nível máximo (maxLevel) usado na geração da árvore" style="width: 110px;">
+        <button id="renderBtn">Gerar</button>
+        <button id="expandAllBtn" class="btn-secondary" type="button">Expandir tudo</button>
+        <button id="collapseAllBtn" class="btn-secondary" type="button">Colapsar tudo</button>
+      </div>
+      <div class="error" id="errorMsg"></div>
+      <div class="legend">
+        <div class="legend-item"><span class="swatch black"></span> Black — folha ("B")</div>
+        <div class="legend-item"><span class="swatch white"></span> White — folha ("W")</div>
+        <div class="legend-item"><span class="swatch half"></span> Half — 8 filhos ("(") · clique no "+"/"−" para
+          expandir/colapsar</div>
+        <div class="legend-item"><span class="swatch half" style="border-style: dashed;"></span> Half-leaf — "(" que
+          atingiu o maxLevel (sem filhos)</div>
+      </div>
+    </div>
+
+    <div class="svg-wrapper">
+      <svg id="treeSvg" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <div class="stats" id="statsMsg"></div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+
+</html>
